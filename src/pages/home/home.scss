@@ -1,0 +1,143 @@
+page-home {
+
+#wizardCadastro
+    {
+      background-color: #E9EAEE;
+    }
+
+#labelCelular
+      {
+        color: #F58634;
+      }
+
+#inpCelular
+          {
+            width: 95%;
+            background-color: #FFFFFF;
+            margin: auto;
+          }
+
+#labelDescricaoCelular
+      {
+        font-size: small;
+      }
+     
+
+#btnContinuarTelefone
+            {
+              background-color: #F58634;
+                width: 100%;
+                margin: auto;
+            }
+
+#labelSenha
+      {
+        color: #F58634;
+      }
+
+#inpSenha
+          {
+            width: 95%;
+            background-color: #FFFFFF;
+            margin: auto;
+          }
+
+#labelDescricaoSenha
+      {
+        font-size: small;
+      }          
+
+#btnContinuarSenha
+            {
+              background-color: #F58634;
+                width: 100%;
+                margin: auto;
+            }            
+
+#labelNome
+           {
+            color: #F58634;
+           }
+
+#inpNome
+           {
+              width: 45%;
+              background-color: #FFFFFF;
+              float:left;
+           }
+
+#inpSobreNome
+           {
+              width: 45%;
+              background-color: #FFFFFF;
+              float:right;
+           }
+
+#btnContinuarNome
+           {
+              background-color: #F58634;
+              width: 100%;
+              margin: auto;
+           }           
+
+#labelDescricaoNome
+      {
+        font-size: small;
+        margin: auto;
+      }           
+
+
+
+#labelGenero
+           {
+            color: #F58634;
+           }
+
+#btnFeminino
+           {
+             width: 30%;
+             border-color: #F58634;
+           }
+
+#btnMasculino
+           {
+             width: 30%;
+             border-color: #F58634;
+           }
+
+#labelDescricaoGenero
+      {
+        font-size: small;
+      }                      
+
+#labelNascimento
+      {
+        color: #F58634;
+      }
+
+#inpDataNascimento
+          {
+            width: 95%;
+            background-color: #FFFFFF;
+            margin: auto;
+          }
+
+#labelDescricaoNascimento
+      {
+        font-size: small;
+      }
+
+#btnContinuarNascimento
+            {
+              background-color: #F58634;
+                width: 95%;
+                margin: auto;
+            }                                    
+
+  #btnLupaEntrando
+      {
+        background-color: #F58634;
+        margin: auto;
+      }
+
+}

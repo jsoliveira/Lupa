@@ -1,0 +1,185 @@
+<ion-content class="tutorial-page">
+
+  <ion-slides pager id='wizardCadastro'>
+
+    <ion-slide>
+
+      <ion-list no-lines>
+        
+        <ion-item style="text-align: center;background: #E9EAEE;"> 
+        <h2 class="slide-title" id='labelCelular'>Qual o número do seu celular?</h2>
+        </ion-item>
+
+        <div padding>
+        <ion-item >
+        <ion-input id='inpCelular' type="text" placeholder="Informe o número do seu celular"></ion-input>
+        <br>
+        </ion-item>
+        </div>
+
+        <ion-item style="text-align: center;background: #E9EAEE;"> 
+        <button ion-button large class="button button-block" id='btnContinuarTelefone' (click)="goToSenha()">Continuar</button>
+        </ion-item>
+
+        <ion-item style="text-align: center;background: #E9EAEE;"> 
+        <ion-label id='labelDescricaoCelular'>Você usará esse número quando fizer login</ion-label>
+        </ion-item>
+        
+      </ion-list>
+
+    </ion-slide>
+
+    <ion-slide>
+
+      <ion-list no-lines>
+        
+        <ion-item style="text-align: center;background: #E9EAEE;"> 
+        <h2 class="slide-title" id='labelSenha'>Crie uma senha</h2>
+        </ion-item>
+
+        <div padding>
+        <ion-item >        
+        <ion-input id='inpSenha' type="text" placeholder="Senha"></ion-input>
+        </ion-item>
+        </div>        
+
+        <ion-item style="text-align: center;background: #E9EAEE;"> 
+        <button ion-button large class="button button-block" id='btnContinuarSenha' (click)="goToNome()">Continuar</button>
+        </ion-item>
+
+        <ion-item style="text-align: center;background: #E9EAEE;"> 
+        <ion-label id='labelDescricaoSenha'>Digite uma combinação de pelo menos seis...</ion-label>
+        </ion-item>
+
+      </ion-list>
+
+    </ion-slide>
+
+    <ion-slide>
+      <ion-list no-lines>
+       
+      <ion-item style="text-align: center;background: #E9EAEE;"> 
+      <h2 class="slide-title" id='labelNome'>Qual o seu nome?</h2>
+      </ion-item>
+
+      <div padding>
+      <ion-item >
+      <ion-input id='inpNome' type="text" placeholder="Nome"></ion-input>
+      <ion-input id='inpSobreNome' type="text" placeholder="Sobrenome"></ion-input>
+      </ion-item>
+      </div>
+     
+
+      <ion-item item-center style="text-align: center;background: #E9EAEE;">
+      <button ion-button large class="button button-block" id='btnContinuarNome' (click)="goToGenero()">Continuar</button>
+      </ion-item>
+
+      <ion-item item-center style="text-align: center;background: #E9EAEE;">
+      <ion-label id='labelDescricaoNome'>O uso verdadeiro do seu nome garante</ion-label>
+      </ion-item>
+
+
+
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide>
+
+      <ion-list no-lines>
+
+      <ion-item style="text-align: center;background: #E9EAEE;"> 
+      <h2 class="slide-title" id='labelGenero'>Qual é seu Gênero?</h2>
+      </ion-item>
+
+
+      <ion-item style="text-align: center;background: #E9EAEE;">  
+      <button ion-button outline icon-only id='btnFeminino' (click)="goToNascimento()">
+        <ion-icon name="ios-woman"></ion-icon>
+      </button>
+      <button ion-button outline icon-only id='btnMasculino' (click)="goToNascimento()">
+        <ion-icon name="ios-man"></ion-icon>
+      </button>
+      <br>
+      </ion-item>
+
+      <ion-item style="text-align: center;background: #E9EAEE;"> 
+      <ion-label id='labelDescricaoGenero'>Você pode alterar depois nas configuraçõ</ion-label>
+      </ion-item>
+
+
+      </ion-list>
+
+    </ion-slide>    
+
+    <ion-slide>
+
+      <ion-list no-lines>
+
+
+      <ion-item style="text-align: center;background: #E9EAEE;">  
+      <h2 class="slide-title" id='labelNascimento'>Quando você nasceu?</h2>
+      </ion-item>
+
+      <ion-item style="text-align: center;background: #E9EAEE;"> 
+        <ion-label>Data de Nascimento:</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD-MM-YYYY" [(ngModel)]="myDate"></ion-datetime>
+      </ion-item>
+
+      <ion-item style="text-align: center;background: #E9EAEE;"> 
+      <ion-label id='labelDescricaoNascimento'>Você pode escolher quem pode ver</ion-label>
+      </ion-item>
+
+      <ion-item style="text-align: center;background: #E9EAEE;"> 
+      <button ion-button large class="button button-block" id='btnContinuarNascimento' (click)="goToEntrar()">Continuar</button>
+      </ion-item>
+
+      </ion-list>
+
+    </ion-slide>
+
+    <ion-slide>
+
+      <div id="buttonbar">
+   
+      <button ion-button large   color="primary" id='btnLupaEntrando'>
+        <ion-icon ios="ios-search" md="md-search"></ion-icon>
+      </button>
+    
+      </div>
+
+   </ion-slide>
+
+
+
+
+
+
+
+
+
+
+<!--
+    <ion-slide *ngFor="let slide of slides">
+      <ion-toolbar>
+        <ion-buttons end>
+          <button ion-button color="primary">Skip</button>
+        </ion-buttons>
+      </ion-toolbar>
+      <img [src]="slide.image" class="slide-image" />
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-toolbar>
+      </ion-toolbar>
+      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image" />
+      <h2 class="slide-title">Ready to Play?</h2>
+      <button ion-button large clear icon-right color="primary">
+        Continue
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>-->
+
+  </ion-slides>
+</ion-content>
