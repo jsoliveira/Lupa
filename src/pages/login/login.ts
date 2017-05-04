@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { HomePage } from '../home/home';
-import { FacebookLogin } from '../../util/facebook-login';
+import { Facebook, FacebookLoginResponse } from "@ionic-native/facebook";
 
 @IonicPage()
 @Component({
@@ -13,10 +13,8 @@ import { FacebookLogin } from '../../util/facebook-login';
 
 export class Login {
 
-  fb: FacebookLogin;
-  constructor(public navCtrl: NavController) {
 
-    this.fb = new FacebookLogin();
+  constructor(public navCtrl: NavController, private fb: Facebook) {
 
   }
 
@@ -27,7 +25,14 @@ export class Login {
 
   onLogin() {
 
-    this.fb.doLogin();
+
+    this.fb.login(['public_profile', 'user_friends', 'email'])
+      .then((res: FacebookLoginResponse) => console.log('Logged into Facebook!', res))
+      .catch(e => console.log('Error logging into Facebook', e));
+  }
+
+  doLogout() {
+    this.fb.logout();
   }
 
   onTeste(): void {
