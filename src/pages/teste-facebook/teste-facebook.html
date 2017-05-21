@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>teste-facebook</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngIf="user">
+    <img [src]="userProfile.photoURL" />
+    <ion-card-content>
+      <ion-card-title>
+        {{ userProfile.displayName }}
+      </ion-card-title>
+      <p>
+        Nome : {{user.name}} <br/> 
+        Data de Nascimento : {{user.birthday}}<br/> 
+        Cidade Natal : {{user.hometown.name}}<br/> 
+        Cidade Atual : {{user.location.name}}<br/> 
+        Relacionamento : {{user.relationship_status}}<br/>
+        Email : {{user.email}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

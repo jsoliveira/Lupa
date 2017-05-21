@@ -2,20 +2,44 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { Facebook, FacebookLoginResponse } from "@ionic-native/facebook";
+import firebase from 'firebase';
+import { TesteFacebook } from "../teste-facebook/teste-facebook";
 
 @IonicPage()
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html',
+  templateUrl: 'login.html'
+
 })
 
 
 
 export class Login {
 
+  public static userProfile: any = null;
+  constructor(public navCtrl: NavController, public fb: Facebook) {
 
-  constructor(public navCtrl: NavController, private fb: Facebook) {
 
+  }
+
+  facebookLogin() {
+    this.fb.login(['public_profile', 'email', 'user_birthday', 'user_location', 'user_hometown', 'user_relationships']).then((response) => {
+      const facebookCredential = firebase.auth.FacebookAuthProvider
+        .credential(response.authResponse.accessToken);
+
+      console.log("Facebook Response =>", response);
+      console.log("Facebook Credencial =>", facebookCredential);
+      firebase.auth().signInWithCredential(facebookCredential)
+        .then((success) => {
+          console.log("Firebase success: " + JSON.stringify(success));
+          Login.userProfile = success;
+          this.navCtrl.setRoot(TesteFacebook);
+        })
+        .catch((error) => {
+          console.log("Firebase failure: " + JSON.stringify(error));
+        });
+
+    }).catch((error) => { console.log(error) });
   }
 
   showPage() {
