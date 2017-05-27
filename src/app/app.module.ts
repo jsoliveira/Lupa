@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { Login } from '../pages/login/login';
 import { Facebook } from "@ionic-native/facebook";
 import { TesteFacebook } from "../pages/teste-facebook/teste-facebook";
+import { Principal } from "../pages/principal/principal";
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { TesteFacebook } from "../pages/teste-facebook/teste-facebook";
     MyApp,
     HomePage,
     Login,
-    TesteFacebook
+    TesteFacebook,
+    Principal
     
   ],
   imports: [
@@ -28,7 +30,8 @@ import { TesteFacebook } from "../pages/teste-facebook/teste-facebook";
     MyApp,
     HomePage,
     Login,
-    TesteFacebook
+    TesteFacebook,
+    Principal
     
   ],
   providers: [

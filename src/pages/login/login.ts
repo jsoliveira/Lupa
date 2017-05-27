@@ -4,6 +4,7 @@ import { HomePage } from '../home/home';
 import { Facebook, FacebookLoginResponse } from "@ionic-native/facebook";
 import firebase from 'firebase';
 import { TesteFacebook } from "../teste-facebook/teste-facebook";
+import { Principal } from "../principal/principal";
 
 @IonicPage()
 @Component({
@@ -19,6 +20,12 @@ export class Login {
   public static userProfile: any = null;
   constructor(public navCtrl: NavController, public fb: Facebook) {
 
+
+  }
+
+  public doLogin() {
+
+    this.navCtrl.setRoot(Principal);
 
   }
 
