@@ -9,8 +9,12 @@ import { HomePage } from '../pages/home/home';
 import { Login } from '../pages/login/login';
 import { Facebook } from "@ionic-native/facebook";
 import { TesteFacebook } from "../pages/teste-facebook/teste-facebook";
-import { Principal } from "../pages/principal/principal";
-
+import { AbasPage } from "../pages/abas/abas";
+import { NotificacoesPage } from "../pages/notificacoes/notificacoes";
+import { FavoritosPage } from "../pages/favoritos/favoritos";
+import { AjustesPage } from "../pages/ajustes/ajustes";
+import { ConversasPage } from "../pages/conversas/conversas";
+import { LupaPage } from "../pages/lupa/lupa";
 
 @NgModule({
   declarations: [
@@ -18,7 +22,12 @@ import { Principal } from "../pages/principal/principal";
     HomePage,
     Login,
     TesteFacebook,
-    Principal
+    AbasPage,
+    AjustesPage,
+    FavoritosPage,
+    NotificacoesPage,
+    ConversasPage,
+    LupaPage
     
   ],
   imports: [
@@ -31,7 +40,12 @@ import { Principal } from "../pages/principal/principal";
     HomePage,
     Login,
     TesteFacebook,
-    Principal
+    AbasPage,
+    AjustesPage,
+    FavoritosPage,
+    NotificacoesPage,
+    ConversasPage,
+    LupaPage
     
   ],
   providers: [
