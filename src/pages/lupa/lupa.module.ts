@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { IonicModule } from 'ionic-angular';
 import { LupaPage } from './lupa';
 
 @NgModule({
   declarations: [
-    LupaPage,
+    LupaPage
   ],
   imports: [
   ],

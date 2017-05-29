@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { IonicModule } from 'ionic-angular';
 import { ConversasPage } from './conversas';
 
 @NgModule({
