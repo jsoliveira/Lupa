@@ -14,7 +14,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FavoritosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public favoritos;
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams) {
+
+      this.favoritos = [
+        {nome: "Supermercado Bom dia", inNotificacao: true},
+        {nome: "Supermercado Muffato", inNotificacao: false},
+
+      ];
+
+      console.log(this.favoritos);
+
+
   }
 
   ionViewDidLoad() {

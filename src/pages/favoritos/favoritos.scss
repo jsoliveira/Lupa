@@ -1,3 +1,47 @@
 page-favoritos {
 
+    ion-slides{
+        height: 150px;
+        margin-bottom: 10px;
+    }
+
+    .layout-card{
+        height: 150px;
+
+        margin-bottom: 20px;
+
+        border: 1px solid black;
+
+        border-radius: 10px;
+
+
+    }
+
+    .card-header{
+        height: 25px;
+        text-align: center;
+    }
+
+    .card-content{
+        height: 70px;
+        width: auto;
+    }
+
+    .card-footer{        
+        height: 25px;
+    }
+
+    .btn-favoritos{
+        width: 60px;
+        margin-top: 10px;
+        margin-left: -8px;
+    }
+
+    .card-img{
+        height: 35px;
+        width: 55px;
+
+        margin-top: 10px;
+    }
+
 }

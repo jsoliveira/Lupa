@@ -1,5 +1,79 @@
-
-
 <ion-content padding>
+    <ion-grid>
+
+        <ion-row *ngFor="let favorito of favoritos" class="layout-card">
+            <ion-col>
+
+                <div>
+                    <div class="card-header">
+                        <h5> {{ favorito.nome }} </h5>
+                    </div>
+
+                    <ion-row class="card-content">
+
+                        <ion-col col-3>
+                            <ion-img class="card-img" src="./assets/img/bomDiaLogo.png"></ion-img>
+                        </ion-col>
+
+                        <ion-col col-3>
+                            <button ion-button small class="btn-favoritos"> Perfil </button>
+                        </ion-col>
+
+                        <ion-col col-3>
+                            <button ion-button small class="btn-favoritos"> Chat </button>
+                        </ion-col>
+
+                        <ion-col col-3>
+                            <button ion-button small class="btn-favoritos"> Ir </button>
+                        </ion-col>
+
+                    </ion-row>
+
+                    <ion-row class="card-footer">
+                        <ion-col class="card-footer__text"  col-9>
+                            <h5> Notificações </h5>
+                        </ion-col>
+                        <ion-col col-3>
+                            <ion-toggle color="secondary" item-right> </ion-toggle>
+                        </ion-col>
+
+                    </ion-row>
+
+                </div>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+
+
+    <!--<ion-slides *ngFor="let favorito of favoritos" class="card-favorito">
+
+        <ion-slide>
+            
+            <ion-card>
+                <ion-card-header class="card-header">
+                    {{ favorito.nome }}
+                </ion-card-header>
+
+                <ion-item>
+                    <ion-icon name="cart" item-left col-3></ion-icon>
+                    <button ion-button class="btn-favoritos" col-3> Perfil </button>
+                    <button ion-button class="btn-favoritos" col-3> Chat </button>
+                    <button ion-button class="btn-favoritos" col-3> Ir </button>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>
+                        <h5 col-9> Notificações </h5>
+                    </ion-label>
+                    <ion-toggle color="secondary" item-right col-3> </ion-toggle>
+                </ion-item>
+
+            </ion-card>
+
+        </ion-slide>
+    </ion-slides>-->
+
+
 
 </ion-content>
