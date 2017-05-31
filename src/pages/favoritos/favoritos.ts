@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 
 /**
  * Generated class for the Favoritos page.
@@ -13,20 +13,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'favoritos.html',
 })
 export class FavoritosPage {
-
+  public slides: Slides;
   public favoritos;
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams) {
 
-      this.favoritos = [
-        {nome: "Supermercado Bom dia", inNotificacao: true},
-        {nome: "Supermercado Muffato", inNotificacao: false},
+    this.favoritos = [
+      { nome: "Supermercado Bom dia", inNotificacao: true },
+      { nome: "Supermercado Muffato", inNotificacao: false },
 
-      ];
-
-      console.log(this.favoritos);
+    ];
 
 
   }
@@ -34,5 +32,25 @@ export class FavoritosPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad Favoritos');
   }
+
+  slideChanged(event) {
+    console.log(event.direction);
+
+    console.log('funcionou');
+
+  }
+
+  excluir(favorito) {
+
+    console.log("oldLista -> " + this.favoritos);
+    console.log("excluir -> " + favorito);
+
+    
+    this.favoritos = this.favoritos.filter(item => item !== favorito);
+
+  console.log("novaLista -> " + this.favoritos);
+
+  }
+
 
 }
