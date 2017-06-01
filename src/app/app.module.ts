@@ -16,6 +16,8 @@ import { FavoritosPage } from "../pages/favoritos/favoritos";
 import { AjustesPage } from "../pages/ajustes/ajustes";
 import { ConversasPage } from "../pages/conversas/conversas";
 import { LupaPage } from "../pages/lupa/lupa";
+import { RoundProgressModule } from 'angular-svg-round-progressbar';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { LupaPage } from "../pages/lupa/lupa";
   ],
   imports: [
     BrowserModule,
+    RoundProgressModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
