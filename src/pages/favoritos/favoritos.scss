@@ -1,3 +1,76 @@
-page-favoritos {
+.ios, .md{
+
+    .head{
+        background-color:#B0B0B0;
+    }
+
+    .body{
+        background-color: #E9EAEE;
+    }
+
+    page-favoritos {
+        .card-header{
+            text-align: center;
+
+            font-size: 1em;
+
+        }
+
+        .header-title{
+            color: #FFF;
+
+            text-align: center;
+        }
+
+        .img-card{
+            width: 100%;
+            margin-top: -15px;
+        }
+
+        ion-card{
+            margin-bottom: 5px!important;
+
+        }
+
+        ion-label{
+            font-size: 1em;
+        }
+
+
+        .btn-favoritos{
+            background-color: #F58634;
+
+            margin: 1px;
+
+            font-size: 0.8em;
+
+            padding: 5px;
+
+        }
+
+        .btn-excluir{
+            background-color: #B0B0B0;
+
+            margin: 1px;
+
+            font-size: 0.8em;
+
+            padding: 5px;
+
+        }
+
+    }
+
+}
+
+.md{
+
+    page-favoritos {
+
+        .toggle-card{
+            margin-top: 10px;
+        }
+
+    }
 
 }

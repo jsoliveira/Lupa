@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RoundProgressModule, RoundProgressConfig } from 'angular-svg-round-progressbar';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -14,7 +15,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class NotificacoesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private _config: RoundProgressConfig) {
+
+      _config.setDefaults({
+        color: '#f00',
+        background: '#0f0'
+    });
+
   }
 
   ionViewDidLoad() {
