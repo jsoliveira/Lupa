@@ -1,38 +1,72 @@
-
 <ion-content padding>
 
     <ion-card>
 
+        <ion-card-header class="card-header">
+            Nova Oferta | Bom dia Supermercados
+        </ion-card-header>
+
         <ion-row>
 
-            <ion-col col-3>
-                <round-progress [current]="3" [max]="10" [radius]="20" [responsive]="true" [clockwise]="true" [stroke]="5"></round-progress>
+            <ion-col col-3 col-tsm-3> 
+                <ion-label class="title-oferta"> Encarte | Oferta de Carne</ion-label>
+                <img src="./assets/img/bomDiaLogo.png" class="banner-card" />
+            </ion-col>
+
+            <ion-col col-2> 
+                <ion-label class="label-duraracao"> Termina em:</ion-label>
+                <div class="progress-wrapper" id="dia">
+                    <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+                    <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                        [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                        [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+                    </round-progress>
+                </div>
 
             </ion-col>
 
-            <ion-col col-3>
-                <round-progress [current]="3" [max]="10" [radius]="20" [responsive]="true" [clockwise]="true" [stroke]="5"></round-progress>
+            <ion-col col-2>
+                <div class="progress-wrapper" id="hora">
+                    <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+                    <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                        [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                        [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+                    </round-progress>
+                </div>
 
             </ion-col>
+            <ion-col col-2>
+                <div class="progress-wrapper" id="minuto">
+                    <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
 
-            <ion-col col-3>
-                <round-progress [current]="3" [max]="10" [radius]="20" [responsive]="true" [clockwise]="true" [stroke]="5"></round-progress>
+                    <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                        [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                        [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+                    </round-progress>
+                </div>
 
             </ion-col>
+            <ion-col col-2>
+                <div class="progress-wrapper" id="segundo">
+                    <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
 
-
-            <ion-col col-3>
-                <round-progress [current]="3" [max]="10" [radius]="20" [responsive]="true" [clockwise]="true" [stroke]="5"></round-progress>
+                    <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                        [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                        [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+                    </round-progress>
+                </div>
 
             </ion-col>
 
         </ion-row>
 
-
+        <ion-row class="footer">
+            <button ion-button full color="danger" clear small> Ver detalhes</button>
+        </ion-row>
 
     </ion-card>
-
-
 
 
 </ion-content>

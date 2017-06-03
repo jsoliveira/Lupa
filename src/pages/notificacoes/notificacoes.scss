@@ -1,3 +1,51 @@
 page-notificacoes {
 
+  //RELOGIOS
+  .progress-wrapper {
+      position: relative;
+      margin: 20px auto;
+      font-size: 30px;
+    }
+
+  .current {
+    position: absolute;
+    color: #000;
+    font-weight: 100;
+    font-size: 100px;
+    line-height: 2; 
+  }
+
+  round-progress {
+    margin: auto;
+  }
+
+
+  //RESTO
+  .card-header{
+      text-align: left;
+      font-size: 0.8em;
+  }
+  .banner-card{
+    height: 15vh;     
+  }
+
+  .label-duraracao{
+    margin-left: -5px;
+    position: absolute;
+    z-index: 1;
+    font-size: 0.5em;
+
+    color: #505050;
+  }
+
+  .title-oferta{
+    position: absolute;
+    z-index: 1;
+    font-size: 0.8em;
+    margin-top: -10px;
+    transform: translateX(70%);
+
+
+  }
+
 }
