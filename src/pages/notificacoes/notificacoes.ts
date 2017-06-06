@@ -17,10 +17,10 @@ export class NotificacoesPage {
   current: number = 27;
   max: number = 50;
   stroke: number = 5;
-  radius: number = 20;
+  radius: number = 25;
   semicircle: boolean = false;
   rounded: boolean = false;
-  responsive: boolean = false;
+  responsive: boolean = true;
   clockwise: boolean = true;
   color: string = '#45ccce';
   background: string = '#eaeaea';
@@ -59,7 +59,7 @@ export class NotificacoesPage {
       'transform': transform,
       '-moz-transform': transform,
       '-webkit-transform': transform,
-      'font-size': this.radius / 1.5 + 'px'
+      'font-size': this.radius / 2 + 'px'
     };
   }
 
