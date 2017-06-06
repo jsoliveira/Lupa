@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RoundProgressModule, RoundProgressConfig } from 'angular-svg-round-progressbar';
+import { RoundProgressConfig } from 'angular-svg-round-progressbar';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -14,8 +14,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'notificacoes.html',
 })
 export class NotificacoesPage {
-  current: number = 27;
+  //parametros da RoundedProgress
+  current: number = 5;
   max: number = 50;
+  min: number = 0;
   stroke: number = 5;
   radius: number = 25;
   semicircle: boolean = false;
@@ -29,23 +31,43 @@ export class NotificacoesPage {
   animationDelay: number = 0;
   animations: string[] = [];
   gradient: boolean = false;
-  realCurrent: number = 0;  
+  realCurrent: number = 0;
+
+  //parametros moment
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     private _config: RoundProgressConfig) {
 
-      _config.setDefaults({
-        color: '#f00',
-        background: '#0f0'
+    _config.setDefaults({
+      color: '#f00',
+      background: '#0f0'
     });
+
+  }
+
+
+  decrementaTempo(){
+    this.current -= 1;
+
+    if(this.current < 0){
+      this.current = 0;
+    }
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Notificacoes');
+
+//    this.decrementaTempo();
+
+
+    setInterval(() => { this.decrementaTempo(); }, 1000);
+
+
   }
+
 
 
   getOverlayStyle() {
