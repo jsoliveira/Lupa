@@ -1,0 +1,126 @@
+.ios, .md{
+
+    .head{
+        background-color:#B0B0B0;
+    }
+
+    .body{
+        background-color: #E9EAEE;
+    }
+
+    page-perfil {
+        
+        .header-title{
+            color: #FFF;
+
+            text-align: left;
+        }
+
+        .btn-voltar{
+            background-color:#B0B0B0;
+            color: #FFF;
+        
+        }
+
+        .cabecalho-perfil{
+            height: 150px;
+
+            margin-bottom: 10px;
+        }
+
+        .banner-perfil{
+            height: 100%;
+            width: 100%;
+        }
+
+
+        //RELOGIOS
+        .progress-wrapper {
+            position: relative;
+            // margin: 20px auto;
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+
+            font-size: 30px;
+            }
+
+        .current {
+            position: absolute;
+            color: #000;
+            font-weight: 100;
+            font-size: 100px;
+            line-height: 2; 
+        }
+
+        round-progress {
+            margin: auto;
+        }
+
+
+        //RESTO
+        .card-header{
+            text-align: left;
+            font-size: 0.8em;
+        }
+        .banner-card{
+            height: 15vh;     
+        }
+
+        .label-duraracao{
+            transform: translateX(-5px);
+            position: absolute;
+            z-index: 1;
+            font-size: 0.7em;
+
+            color: #505050;
+        }
+
+        .title-oferta{
+            position: absolute;
+            z-index: 1;
+            font-size: 0.8em;
+            margin-top: -10px;
+            transform: translateX(70%);
+
+
+        }
+
+        .rodape-duracao{
+            font-size: 0.5em;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .layout-card{
+            height: 200px;
+        }
+
+        .perfil-promocao{
+            height: 200px;
+            margin-bottom: 10px;
+        }
+
+        .informacao-layout{
+            padding-left: 10px;
+        }
+
+        .cabecalho-informacao{
+            text-align: left;
+
+            font-weight: bold;
+
+            margin-top: -10px;
+        }
+
+        .contatos-item{
+            margin-bottom: 15px;
+        }
+
+        .localizacao-item{
+            margin-bottom: 10px;
+        }
+
+
+    }
+}

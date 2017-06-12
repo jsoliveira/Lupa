@@ -1,0 +1,469 @@
+<ion-header class="head header-padrao">
+
+  <ion-row>
+    <ion-col col-5>
+      <button class="btn-voltar" clear ion-button icon-only (click)="voltar()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
+    </ion-col>
+
+    <ion-col col-7>
+      <ion-title>
+        <h4 class="header-title"> Perfil </h4>
+      </ion-title>
+    </ion-col>
+
+
+  </ion-row>
+
+
+</ion-header>
+
+
+<ion-content padding class="body">
+
+  <ion-card class="cabecalho-perfil">
+
+    <img src="./assets/img/bomDiaLogo.png" class="banner-perfil" />
+
+  </ion-card>
+
+  <ion-slides class="perfil-promocao">
+
+    <ion-slide>
+      <ion-card class="layout-card">
+
+
+        <ion-card-header class="card-header">
+          Nova Oferta | Bom dia Supermercados
+        </ion-card-header>
+
+        <ion-row>
+
+          <ion-col col-3 col-tsm-3>
+            <ion-label class="title-oferta"> Encarte | Oferta de Carne</ion-label>
+            <img src="./assets/img/bomDiaLogo.png" class="banner-card" />
+          </ion-col>
+
+          <ion-col col-2>
+            <ion-label class="label-duraracao"> Termina em:</ion-label>
+            <div class="progress-wrapper" id="dia">
+              <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+              <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              </round-progress>
+            </div>
+            <ion-label class="rodape-duracao"> Dias </ion-label>
+
+          </ion-col>
+
+          <ion-col col-2>
+            <div class="progress-wrapper" id="hora">
+              <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+              <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              </round-progress>
+            </div>
+            <ion-label class="rodape-duracao"> Horas </ion-label>
+
+          </ion-col>
+          <ion-col col-2>
+            <div class="progress-wrapper" id="minuto">
+              <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+              <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              </round-progress>
+            </div>
+            <ion-label class="rodape-duracao"> Minutos </ion-label>
+          </ion-col>
+          <ion-col col-2>
+            <div class="progress-wrapper" id="segundo">
+              <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+              <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              </round-progress>
+            </div>
+            <ion-label class="rodape-duracao"> Segundos </ion-label>
+
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="footer">
+          <button ion-button full color="danger" clear small> Ver detalhes</button>
+        </ion-row>
+
+      </ion-card>
+
+
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card class="layout-card">
+        <ion-card-header class="card-header">
+          <ion-title> Informações </ion-title>
+        </ion-card-header>
+
+        <div class="informacao-layout">
+          <ion-label class="cabecalho-informacao"> Contatos </ion-label>
+          <ion-row class="contatos-item">
+            <p> Telefone: (44) 3525-6100 </p>
+          </ion-row>
+
+          <ion-label class="cabecalho-informacao"> Localização </ion-label>
+          <div class="localizacao-item">
+            <ion-row>
+              <p> Rua São Paulo 1777 , Centro </p>
+            </ion-row>
+            <ion-row>
+              <p> Em frente a Fiat Via Verdi </p>
+            </ion-row>
+            <ion-row>
+              <p> 87303-140 Campo Mourão Paraná </p>
+            </ion-row>
+          </div>
+        </div>
+
+      </ion-card>
+
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-slides class="perfil-promocao">
+
+    <ion-slide>
+      <ion-card class="layout-card">
+
+
+        <ion-card-header class="card-header">
+          Nova Oferta | Bom dia Supermercados
+        </ion-card-header>
+
+        <ion-row>
+
+          <ion-col col-3 col-tsm-3>
+            <ion-label class="title-oferta"> Encarte | Oferta de Carne</ion-label>
+            <img src="./assets/img/bomDiaLogo.png" class="banner-card" />
+          </ion-col>
+
+          <ion-col col-2>
+            <ion-label class="label-duraracao"> Termina em:</ion-label>
+            <div class="progress-wrapper" id="dia">
+              <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+              <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              </round-progress>
+            </div>
+            <ion-label class="rodape-duracao"> Dias </ion-label>
+
+          </ion-col>
+
+          <ion-col col-2>
+            <div class="progress-wrapper" id="hora">
+              <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+              <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              </round-progress>
+            </div>
+            <ion-label class="rodape-duracao"> Horas </ion-label>
+
+          </ion-col>
+          <ion-col col-2>
+            <div class="progress-wrapper" id="minuto">
+              <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+              <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              </round-progress>
+            </div>
+            <ion-label class="rodape-duracao"> Minutos </ion-label>
+          </ion-col>
+          <ion-col col-2>
+            <div class="progress-wrapper" id="segundo">
+              <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+              <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              </round-progress>
+            </div>
+            <ion-label class="rodape-duracao"> Segundos </ion-label>
+
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="footer">
+          <button ion-button full color="danger" clear small> Ver detalhes</button>
+        </ion-row>
+
+      </ion-card>
+
+
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card class="layout-card">
+        <ion-card-header class="card-header">
+          <ion-title> Informações </ion-title>
+        </ion-card-header>
+
+        <div class="informacao-layout">
+          <ion-label class="cabecalho-informacao"> Contatos </ion-label>
+          <ion-row class="contatos-item">
+            <p> Telefone: (44) 3525-6100 </p>
+          </ion-row>
+
+          <ion-label class="cabecalho-informacao"> Localização </ion-label>
+          <div class="localizacao-item">
+            <ion-row>
+              <p> Rua São Paulo 1777 , Centro </p>
+            </ion-row>
+            <ion-row>
+              <p> Em frente a Fiat Via Verdi </p>
+            </ion-row>
+            <ion-row>
+              <p> 87303-140 Campo Mourão Paraná </p>
+            </ion-row>
+          </div>
+        </div>
+
+      </ion-card>
+
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-slides class="perfil-promocao">
+
+    <ion-slide>
+      <ion-card class="layout-card">
+
+
+        <ion-card-header class="card-header">
+          Nova Oferta | Bom dia Supermercados
+        </ion-card-header>
+
+        <ion-row>
+
+          <ion-col col-3 col-tsm-3>
+            <ion-label class="title-oferta"> Encarte | Oferta de Carne</ion-label>
+            <img src="./assets/img/bomDiaLogo.png" class="banner-card" />
+          </ion-col>
+
+          <ion-col col-2>
+            <ion-label class="label-duraracao"> Termina em:</ion-label>
+            <div class="progress-wrapper" id="dia">
+              <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+              <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              </round-progress>
+            </div>
+            <ion-label class="rodape-duracao"> Dias </ion-label>
+
+          </ion-col>
+
+          <ion-col col-2>
+            <div class="progress-wrapper" id="hora">
+              <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+              <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              </round-progress>
+            </div>
+            <ion-label class="rodape-duracao"> Horas </ion-label>
+
+          </ion-col>
+          <ion-col col-2>
+            <div class="progress-wrapper" id="minuto">
+              <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+              <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              </round-progress>
+            </div>
+            <ion-label class="rodape-duracao"> Minutos </ion-label>
+          </ion-col>
+          <ion-col col-2>
+            <div class="progress-wrapper" id="segundo">
+              <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+              <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              </round-progress>
+            </div>
+            <ion-label class="rodape-duracao"> Segundos </ion-label>
+
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="footer">
+          <button ion-button full color="danger" clear small> Ver detalhes</button>
+        </ion-row>
+
+      </ion-card>
+
+
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card class="layout-card">
+        <ion-card-header class="card-header">
+          <ion-title> Informações </ion-title>
+        </ion-card-header>
+
+        <div class="informacao-layout">
+          <ion-label class="cabecalho-informacao"> Contatos </ion-label>
+          <ion-row class="contatos-item">
+            <p> Telefone: (44) 3525-6100 </p>
+          </ion-row>
+
+          <ion-label class="cabecalho-informacao"> Localização </ion-label>
+          <div class="localizacao-item">
+            <ion-row>
+              <p> Rua São Paulo 1777 , Centro </p>
+            </ion-row>
+            <ion-row>
+              <p> Em frente a Fiat Via Verdi </p>
+            </ion-row>
+            <ion-row>
+              <p> 87303-140 Campo Mourão Paraná </p>
+            </ion-row>
+          </div>
+        </div>
+
+      </ion-card>
+
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-slides class="perfil-promocao">
+
+    <ion-slide>
+      <ion-card class="layout-card">
+
+
+        <ion-card-header class="card-header">
+          Nova Oferta | Bom dia Supermercados
+        </ion-card-header>
+
+        <ion-row>
+
+          <ion-col col-3 col-tsm-3>
+            <ion-label class="title-oferta"> Encarte | Oferta de Carne</ion-label>
+            <img src="./assets/img/bomDiaLogo.png" class="banner-card" />
+          </ion-col>
+
+          <ion-col col-2>
+            <ion-label class="label-duraracao"> Termina em:</ion-label>
+            <div class="progress-wrapper" id="dia">
+              <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+              <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              </round-progress>
+            </div>
+            <ion-label class="rodape-duracao"> Dias </ion-label>
+
+          </ion-col>
+
+          <ion-col col-2>
+            <div class="progress-wrapper" id="hora">
+              <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+              <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              </round-progress>
+            </div>
+            <ion-label class="rodape-duracao"> Horas </ion-label>
+
+          </ion-col>
+          <ion-col col-2>
+            <div class="progress-wrapper" id="minuto">
+              <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+              <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              </round-progress>
+            </div>
+            <ion-label class="rodape-duracao"> Minutos </ion-label>
+          </ion-col>
+          <ion-col col-2>
+            <div class="progress-wrapper" id="segundo">
+              <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+
+              <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              </round-progress>
+            </div>
+            <ion-label class="rodape-duracao"> Segundos </ion-label>
+
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="footer">
+          <button ion-button full color="danger" clear small> Ver detalhes</button>
+        </ion-row>
+
+      </ion-card>
+
+
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card class="layout-card">
+        <ion-card-header class="card-header">
+          <ion-title> Informações </ion-title>
+        </ion-card-header>
+
+        <div class="informacao-layout">
+          <ion-label class="cabecalho-informacao"> Contatos </ion-label>
+          <ion-row class="contatos-item">
+            <p> Telefone: (44) 3525-6100 </p>
+          </ion-row>
+
+          <ion-label class="cabecalho-informacao"> Localização </ion-label>
+          <div class="localizacao-item">
+            <ion-row>
+              <p> Rua São Paulo 1777 , Centro </p>
+            </ion-row>
+            <ion-row>
+              <p> Em frente a Fiat Via Verdi </p>
+            </ion-row>
+            <ion-row>
+              <p> 87303-140 Campo Mourão Paraná </p>
+            </ion-row>
+          </div>
+        </div>
+
+      </ion-card>
+
+    </ion-slide>
+
+  </ion-slides>
+
+
+
+</ion-content>
