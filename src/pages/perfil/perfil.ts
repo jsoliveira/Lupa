@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
 import { RoundProgressConfig } from 'angular-svg-round-progressbar';
+import { FavoritosPage } from '../favoritos/favoritos';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { PerfilPage } from '../perfil/perfil';
+
 /**
- * Generated class for the Notificacoes page.
+ * Generated class for the Perfil page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
 @IonicPage()
 @Component({
-  selector: 'page-notificacoes',
-  templateUrl: 'notificacoes.html',
+  selector: 'page-perfil',
+  templateUrl: 'perfil.html',
 })
-export class NotificacoesPage {
+export class PerfilPage {
   //parametros da RoundedProgress
   current: number = 5;
   max: number = 50;
@@ -33,10 +34,9 @@ export class NotificacoesPage {
   gradient: boolean = false;
   realCurrent: number = 0;
 
-  //parametros moment
 
   constructor(
-    public navCtrl: NavController,
+    public navCtrl: NavController, 
     public navParams: NavParams,
     private _config: RoundProgressConfig) {
 
@@ -45,6 +45,16 @@ export class NotificacoesPage {
       background: '#0f0'
     });
 
+
+
+  }
+
+  voltar(){
+    this.navCtrl.setRoot(FavoritosPage);
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad Perfil');
   }
 
 
@@ -54,14 +64,6 @@ export class NotificacoesPage {
     if(this.current < 0){
       this.current = 0;
     }
-
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Notificacoes');
-
-//    this.decrementaTempo();
-
 
     setInterval(() => { this.decrementaTempo(); }, 1000);
 
