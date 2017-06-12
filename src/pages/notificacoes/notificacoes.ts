@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RoundProgressConfig } from 'angular-svg-round-progressbar';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { PerfilPage } from '../perfil/perfil';
 /**
  * Generated class for the Notificacoes page.
  *
@@ -67,8 +67,6 @@ export class NotificacoesPage {
 
 
   }
-
-
 
   getOverlayStyle() {
     let isSemi = this.semicircle;

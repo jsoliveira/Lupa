@@ -12,6 +12,7 @@ import { Facebook } from "@ionic-native/facebook";
 import { TesteFacebook } from "../pages/teste-facebook/teste-facebook";
 import { AbasPage } from "../pages/abas/abas";
 import { NotificacoesPage } from "../pages/notificacoes/notificacoes";
+import { PerfilPage } from "../pages/perfil/perfil";
 import { FavoritosPage } from "../pages/favoritos/favoritos";
 import { AjustesPage } from "../pages/ajustes/ajustes";
 import { ConversasPage } from "../pages/conversas/conversas";
@@ -30,7 +31,8 @@ import { RoundProgressModule } from 'angular-svg-round-progressbar';
     FavoritosPage,
     NotificacoesPage,
     ConversasPage,
-    LupaPage
+    LupaPage,
+    PerfilPage
     
   ],
   imports: [
@@ -49,7 +51,8 @@ import { RoundProgressModule } from 'angular-svg-round-progressbar';
     FavoritosPage,
     NotificacoesPage,
     ConversasPage,
-    LupaPage
+    LupaPage,
+    PerfilPage
     
   ],
   providers: [
