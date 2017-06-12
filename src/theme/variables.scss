@@ -36,21 +36,24 @@ $colors: (
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
-
+$tabs-ios-tab-icon-color-active	: #F58634;
+$tabs-ios-tab-text-color-active: #F58634;
 
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
+$tabs-md-tab-icon-color-active: #F58634;
+$tabs-md-tab-text-color-active: #F58634;
+$tabs-md-tab-font-size-active: 1.2rem;
 
 
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
-
+$tabs-wp-tab-color-active: #F58634;
+$tabs-wp-tab-icon-color: #F58634;
 
 
 
@@ -64,12 +67,14 @@ $colors: (
 @import "ionic.theme.default";
 
 
-// Ionicons
+// Ioniconss
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see:
 // http://ionicframework.com/docs/v2/ionicons/
 
 @import "ionic.ionicons";
+
+
 
 
 // Fonts

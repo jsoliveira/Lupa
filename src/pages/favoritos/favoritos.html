@@ -18,7 +18,7 @@
 
             <ion-col col-3 col-tsm-3> <img src="./assets/img/bomDiaLogo.png" class="img-card"/></ion-col>
 
-            <ion-col ion-button small class="btn-favoritos" col-2 col-tsm-2> Perfil </ion-col>
+            <ion-col ion-button small class="btn-favoritos" col-2 col-tsm-2 (click)="goPerfil(favorito)"> Perfil </ion-col>
             <ion-col ion-button small class="btn-favoritos" col-2 col-tsm-2> Chat </ion-col>
             <ion-col ion-button small class="btn-favoritos" col-2 col-tsm-2> Ir </ion-col>
             <ion-col ion-button small class="btn-excluir" col-2 col-tsm-2 (click)="excluir(favorito)"> Excluir </ion-col>

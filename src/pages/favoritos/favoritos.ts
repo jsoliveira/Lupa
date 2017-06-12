@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PerfilPage } from '../perfil/perfil';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 
 /**
@@ -49,6 +50,12 @@ export class FavoritosPage {
     this.favoritos = this.favoritos.filter(item => item !== favorito);
 
   console.log("novaLista -> " + this.favoritos);
+
+  }
+
+  goPerfil(favorito){
+
+    this.navCtrl.setRoot(PerfilPage);
 
   }
 
