@@ -18,8 +18,12 @@ import { AjustesPage } from "../pages/ajustes/ajustes";
 import { ConversasPage } from "../pages/conversas/conversas";
 import { LupaPage } from "../pages/lupa/lupa";
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
+import { FavoritoService } from '../domain/favoritos/favoritoService';
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
+import { HttpModule } from '@angular/http';
 
-
+ 
 @NgModule({
   declarations: [
     MyApp,
@@ -37,6 +41,7 @@ import { RoundProgressModule } from 'angular-svg-round-progressbar';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RoundProgressModule,
     IonicModule.forRoot(MyApp)
   ],
@@ -60,6 +65,7 @@ import { RoundProgressModule } from 'angular-svg-round-progressbar';
     SplashScreen,
     Facebook,
     Geolocation,
+    FavoritoService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

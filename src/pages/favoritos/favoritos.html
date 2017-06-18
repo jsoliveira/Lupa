@@ -4,13 +4,13 @@
     </ion-title>
 </ion-header>
 
-
 <ion-content padding class="body">
 
-    <ion-card *ngFor="let favorito of favoritos">
+
+    <ion-card *ngFor="let favorito of favoritos | async">
 
         <ion-card-header class="card-header">
-            {{ favorito.nome }}
+            {{ favorito.name }}
         </ion-card-header>
 
 
@@ -37,5 +37,7 @@
         </ion-row>
 
     </ion-card>
+
+
 
 </ion-content>
