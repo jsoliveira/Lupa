@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PerfilPage } from '../perfil/perfil';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
+import { FavoritoService } from "../../domain/favoritos/favoritoService";
 
 /**
  * Generated class for the Favoritos page.
@@ -15,23 +16,23 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 })
 export class FavoritosPage {
   public slides: Slides;
+  public isDataAvailable: boolean = false;
   public favoritos;
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams) {
-
-    this.favoritos = [
-      { nome: "Supermercado Bom dia", inNotificacao: true },
-      { nome: "Supermercado Muffato", inNotificacao: false },
-
-    ];
-
+    public navParams: NavParams,
+    public fs: FavoritoService) {
 
   }
 
+
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad Favoritos');
+
+      this.favoritos = this.fs.getFavoritos();
+
   }
 
   slideChanged(event) {
