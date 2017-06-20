@@ -14,9 +14,9 @@ export class FavoritoService{
 
     public getFavoritos(){
 
-//       let apiUrl = "http://sandbox.lupa.ninja/api/contact?s=Mambore&c=1";
+//       let apiUrl = "http://sandbox.lupa.ninja/api/contact?limit=20";
 
-       let apiUrl = "http://sandbox.lupa.ninja/api/contact?s=Mambore";
+       let apiUrl = "http://sandbox.lupa.ninja/api/contact?s=Erva";
 
        let headers = new Headers();
 
@@ -32,8 +32,6 @@ export class FavoritoService{
     //    }
 
 
-       console.log("Estou chegando aqui: URL:" + apiUrl);
-       console.log("Estou chegando aqui: URL:" + headers);
 
        let retorno = this._http
             .get(apiUrl, {headers: headers})
@@ -70,7 +68,6 @@ export class FavoritoService{
 
                     favoritos.push(favorito);
 
-                    console.log(favorito);
 
                 });
 
