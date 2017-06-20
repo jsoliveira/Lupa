@@ -56,7 +56,9 @@ export class FavoritosPage {
 
   goPerfil(favorito){
 
-    this.navCtrl.setRoot(PerfilPage);
+    this.navCtrl.push(PerfilPage, {
+      favorito: favorito
+    });
 
   }
 

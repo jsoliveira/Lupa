@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { RoundProgressConfig } from 'angular-svg-round-progressbar';
 import { FavoritosPage } from '../favoritos/favoritos';
+import { Favorito } from '../../domain/favoritos/favorito';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TimeUtils } from '../../tools/timeUtils';
 
 /**
  * Generated class for the Perfil page.
@@ -16,38 +18,60 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PerfilPage {
   //parametros da RoundedProgress
-  current: number = 5;
   max: number = 50;
   min: number = 0;
   stroke: number = 5;
   radius: number = 25;
   semicircle: boolean = false;
-  rounded: boolean = false;
+  rounded: boolean = true;
   responsive: boolean = true;
   clockwise: boolean = true;
   color: string = '#45ccce';
   background: string = '#eaeaea';
-  duration: number = 800;
-  animation: string = 'easeOutCubic';
+  duration: number = 10;
+  animation: string = 'easeOutBack';
   animationDelay: number = 0;
   animations: string[] = [];
   gradient: boolean = false;
-  realCurrent: number = 0;
 
+
+  //MODEL
+  favorito: Favorito;
+
+  offerArray:any;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private _config: RoundProgressConfig) {
 
-    _config.setDefaults({
-      color: '#f00',
-      background: '#0f0'
-    });
+      this.favorito = navParams.get("favorito");
 
+      let offerObject = this.favorito.offer;
 
+      this.offerArray = Object.keys(offerObject)
+      .map(function (key) {
+        var dt = new Date(offerObject[key].endDate.date);
+
+        // var dif = (dt.getTime() - di.getTime()) / 1000;
+
+        // console.log("Diferenca em segundos: " + dif);
+
+        
+        let timeUtil = new TimeUtils(dt);
+
+        offerObject[key].timeRest = timeUtil;
+
+        return offerObject[key]; 
+      });
+
+      _config.setDefaults({
+        color: '#f00',
+        background: '#0f0'
+      });
 
   }
+
 
   voltar(){
     this.navCtrl.setRoot(FavoritosPage);
@@ -55,20 +79,10 @@ export class PerfilPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Perfil');
-  }
-
-
-  decrementaTempo(){
-    this.current -= 1;
-
-    if(this.current < 0){
-      this.current = 0;
-    }
-
-    setInterval(() => { this.decrementaTempo(); }, 1000);
-
 
   }
+
+
 
   getOverlayStyle() {
     let isSemi = this.semicircle;
