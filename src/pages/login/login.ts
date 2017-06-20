@@ -5,11 +5,13 @@ import { Facebook, FacebookLoginResponse } from "@ionic-native/facebook";
 import firebase from 'firebase';
 import { TesteFacebook } from "../teste-facebook/teste-facebook";
 import { AbasPage } from "../abas/abas";
+import { LupaService } from "../../providers/lupa-service";
 
 @IonicPage()
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
+  providers :[LupaService]
 
 })
 
@@ -17,13 +19,46 @@ import { AbasPage } from "../abas/abas";
 
 export class Login {
 
+
+
   public static userProfile: any = null;
-  constructor(public navCtrl: NavController, public fb: Facebook) {
+  public static usarioLogado: { username: string, password: string, keepConnection: boolean, token: string } = null;
+  public static toker: any = null;
+
+  constructor(public navCtrl: NavController, public fb: Facebook, private lpService: LupaService) {
 
 
   }
 
   public doLogin() {
+
+    let url = LupaService.host;
+    url = url + LupaService.urlLogin;
+    let data: any = {
+      "username": "jhonnybail",
+      "password": "2133618",
+      "keepConnection": true
+    };
+
+    Login.usarioLogado =
+      {
+        username: "jhonnybail",
+        password: "2133618",
+        token: "",
+        keepConnection: true
+      };
+    this.lpService.postWebService(url, data).then((token: any) => {
+
+      console.log("Token :", token);
+
+      Login.usarioLogado.token = token._body;
+
+
+    }).catch(error => {
+
+      console.log("Url :", url);
+      console.log("Erro ao logar", error);
+    });
 
     this.navCtrl.setRoot(AbasPage);
 
