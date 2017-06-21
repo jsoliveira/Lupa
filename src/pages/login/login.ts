@@ -11,7 +11,7 @@ import { LupaService } from "../../providers/lupa-service";
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
-  providers :[LupaService]
+  providers: [LupaService]
 
 })
 
@@ -19,14 +19,21 @@ import { LupaService } from "../../providers/lupa-service";
 
 export class Login {
 
-
+  public username:string = "";
+  public password:string = "";
 
   public static userProfile: any = null;
-  public static usarioLogado: { username: string, password: string, keepConnection: boolean, token: string } = null;
+  public static usarioLogado: { username: string, password: string, keepConnection: boolean, token: string };
   public static toker: any = null;
 
   constructor(public navCtrl: NavController, public fb: Facebook, private lpService: LupaService) {
-
+    Login.usarioLogado =
+      {
+        username: "",
+        password: "",
+        token: "",
+        keepConnection: true
+      };
 
   }
 
@@ -35,32 +42,31 @@ export class Login {
     let url = LupaService.host;
     url = url + LupaService.urlLogin;
     let data: any = {
-      "username": "jhonnybail",
-      "password": "2133618",
+      "username": this.username,
+      "password": this.password,
       "keepConnection": true
     };
 
-    Login.usarioLogado =
-      {
-        username: "jhonnybail",
-        password: "2133618",
-        token: "",
-        keepConnection: true
-      };
     this.lpService.postWebService(url, data).then((token: any) => {
 
       console.log("Token :", token);
 
       Login.usarioLogado.token = token._body;
+      Login.usarioLogado.username = this.username;
+      Login.usarioLogado.password = this.password;
 
+      console.log(Login.usarioLogado);
+      this.navCtrl.setRoot(AbasPage);
 
     }).catch(error => {
 
+
+ 
       console.log("Url :", url);
       console.log("Erro ao logar", error);
     });
 
-    this.navCtrl.setRoot(AbasPage);
+
 
   }
 
