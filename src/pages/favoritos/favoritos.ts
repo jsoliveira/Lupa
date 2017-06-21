@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PerfilPage } from '../perfil/perfil';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
-import { FavoritoService } from "../../domain/favoritos/favoritoService";
+import { LupaService } from "../../providers/lupa-service";
 
 /**
  * Generated class for the Favoritos page.
@@ -13,16 +13,24 @@ import { FavoritoService } from "../../domain/favoritos/favoritoService";
 @Component({
   selector: 'page-favoritos',
   templateUrl: 'favoritos.html',
+  providers: [LupaService]
+
 })
 export class FavoritosPage {
   public slides: Slides;
-  public isDataAvailable: boolean = false;
+
+  //PROVIDER
+  private urlFavorito: string = "contact?s=Erva";
+
+  //Modelo
   public favoritos;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public fs: FavoritoService) {
+    private lpService: LupaService) {
+
+
 
   }
 
@@ -31,14 +39,25 @@ export class FavoritosPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad Favoritos');
 
-      this.favoritos = this.fs.getFavoritos();
+//      this.favoritos = this.fs.getFavoritos();
+      this.favoritos = this.getFavoritos();
+
 
   }
 
-  slideChanged(event) {
-    console.log(event.direction);
 
-    console.log('funcionou');
+  getFavoritos(){
+    let url = LupaService.host + this.urlFavorito;
+
+    let favResponse = this.lpService.getWebService(url).then((dado) => {
+      return dado['data'].result;
+
+    }).catch(error => {
+      console.log("Deu Alex", error);
+    });
+
+
+    return favResponse;
 
   }
 

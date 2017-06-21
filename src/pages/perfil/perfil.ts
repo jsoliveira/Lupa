@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RoundProgressConfig } from 'angular-svg-round-progressbar';
 import { FavoritosPage } from '../favoritos/favoritos';
-import { Favorito } from '../../domain/favoritos/favorito';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TimeUtils } from '../../tools/timeUtils';
 
@@ -36,7 +35,7 @@ export class PerfilPage {
 
 
   //MODEL
-  favorito: Favorito;
+  favorito: any;
 
   offerArray:any;
 

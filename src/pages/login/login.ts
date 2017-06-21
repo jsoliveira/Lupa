@@ -12,22 +12,20 @@ import { LupaService } from "../../providers/lupa-service";
   selector: 'page-login',
   templateUrl: 'login.html',
   providers: [LupaService]
-
 })
 
-
-
 export class Login {
-
+  //VIEW
   public username:string = "";
   public password:string = "";
-
+  //URL PROVIDER
+  private urlLogin:string = "auth/credentials";
+  //MODELOS
   public static userProfile: any = null;
-  public static usarioLogado: { username: string, password: string, keepConnection: boolean, token: string };
-  public static toker: any = null;
+  public static usuarioLogado: { username: string, password: string, keepConnection: boolean, token: string };
 
   constructor(public navCtrl: NavController, public fb: Facebook, private lpService: LupaService) {
-    Login.usarioLogado =
+    Login.usuarioLogado =
       {
         username: "",
         password: "",
@@ -39,8 +37,8 @@ export class Login {
 
   public doLogin() {
 
-    let url = LupaService.host;
-    url = url + LupaService.urlLogin;
+    let url = LupaService.host + this.urlLogin;
+
     let data: any = {
       "username": this.username,
       "password": this.password,
@@ -48,14 +46,14 @@ export class Login {
     };
 
     this.lpService.postWebService(url, data).then((token: any) => {
+      //retirar [' e '] do token recebido no body
+      let tokenTrim = token._body.substring(2, token._body.length - 2);
 
-      console.log("Token :", token);
 
-      Login.usarioLogado.token = token._body;
-      Login.usarioLogado.username = this.username;
-      Login.usarioLogado.password = this.password;
+      Login.usuarioLogado.token    = tokenTrim;
+      Login.usuarioLogado.username = this.username;
+      Login.usuarioLogado.password = this.password;
 
-      console.log(Login.usarioLogado);
       this.navCtrl.setRoot(AbasPage);
 
     }).catch(error => {
