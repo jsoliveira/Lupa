@@ -36,6 +36,7 @@ export class PerfilPage {
 
   //MODEL
   favorito: any;
+  telephones: any;
 
   offerArray:any;
 
@@ -46,16 +47,13 @@ export class PerfilPage {
 
       this.favorito = navParams.get("favorito");
 
+      this.telephones = this.favorito.telephone;
+
       let offerObject = this.favorito.offer;
 
       this.offerArray = Object.keys(offerObject)
       .map(function (key) {
         var dt = new Date(offerObject[key].endDate.date);
-
-        // var dif = (dt.getTime() - di.getTime()) / 1000;
-
-        // console.log("Diferenca em segundos: " + dif);
-
         
         let timeUtil = new TimeUtils(dt);
 

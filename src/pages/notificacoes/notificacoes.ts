@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { RoundProgressConfig } from 'angular-svg-round-progressbar';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { PerfilPage } from '../perfil/perfil';
+import { LupaService } from "../../providers/lupa-service";
+import { TimeUtils } from "../../tools/timeUtils";
+
 /**
  * Generated class for the Notificacoes page.
  *
@@ -12,6 +14,8 @@ import { PerfilPage } from '../perfil/perfil';
 @Component({
   selector: 'page-notificacoes',
   templateUrl: 'notificacoes.html',
+  providers: [LupaService]
+  
 })
 export class NotificacoesPage {
   //parametros da RoundedProgress
@@ -26,19 +30,24 @@ export class NotificacoesPage {
   clockwise: boolean = true;
   color: string = '#45ccce';
   background: string = '#eaeaea';
-  duration: number = 800;
-  animation: string = 'easeOutCubic';
+  duration: number = 10;
+  animation: string = 'easeOutBack';
   animationDelay: number = 0;
   animations: string[] = [];
   gradient: boolean = false;
   realCurrent: number = 0;
 
-  //parametros moment
+  //PROVIDERS
+  private urlNotificacao = "offer";
+
+  //MODELS
+  public notificacoes;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private _config: RoundProgressConfig) {
+    private _config: RoundProgressConfig,
+    private _lpService: LupaService) {
 
     _config.setDefaults({
       color: '#f00',
@@ -47,26 +56,60 @@ export class NotificacoesPage {
 
   }
 
-
-  decrementaTempo(){
-    this.current -= 1;
-
-    if(this.current < 0){
-      this.current = 0;
-    }
-
-  }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad Notificacoes');
 
-//    this.decrementaTempo();
 
-
-    setInterval(() => { this.decrementaTempo(); }, 1000);
-
+    this.notificacoes = this.getNotificacoes();
 
   }
+
+  getNotificacoes(){
+    let url = LupaService.host + this.urlNotificacao;
+
+    let notificacoes = this._lpService.getWebService(url).then((dado) => {
+
+//      let notResponse = dado['data'].result;
+
+      let notResponse = dado['data'].result;
+
+      let notArray = Object.keys(notResponse)
+
+        .map(function (key) {
+
+          var dt;
+
+          try {
+            dt = new Date(notResponse[key].endDate.date);
+            
+            
+          } catch (error) {
+
+            dt = new Date();
+
+          }
+
+          let timeUtil = new TimeUtils(dt);
+
+          notResponse[key].timeRest = timeUtil;
+
+          return notResponse[key]; 
+            
+
+        });
+      
+
+      return notArray;
+
+    }).catch(error => {
+      console.log("Deu Alex", error);
+    });
+
+    return notificacoes;
+
+  }
+
+
 
   getOverlayStyle() {
     let isSemi = this.semicircle;
