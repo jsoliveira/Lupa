@@ -6,25 +6,30 @@
 
 <ion-content padding class="body">
 
-    <ion-card>
 
+    <ion-card *ngFor="let notificacao of notificacoes | async">
+        {{ notificacao.timeRest.countDown() }}
         <ion-card-header class="card-header">
-            Nova Oferta | Bom dia Supermercados
+            {{ notificacao.contact.name }}
         </ion-card-header>
+
+        <ion-row>
+            <ion-label class="title-oferta"> {{ notificacao.name }}  </ion-label>
+
+        </ion-row>
 
         <ion-row>
 
             <ion-col col-3 col-tsm-3> 
-                <ion-label class="title-oferta"> Encarte | Oferta de Carne</ion-label>
                 <img src="./assets/img/bomDiaLogo.png" class="banner-card" />
             </ion-col>
 
             <ion-col col-2> 
                 <ion-label class="label-duraracao"> Termina em:</ion-label>
                 <div class="progress-wrapper" id="dia">
-                    <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+                    <div class="current" [ngStyle]="getOverlayStyle()">{{ notificacao.timeRest.day }}</div>
 
-                    <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                    <round-progress current= "{{notificacao.timeRest.day}}" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
                         [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
                         [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
                     </round-progress>
@@ -35,9 +40,9 @@
 
             <ion-col col-2>
                 <div class="progress-wrapper" id="hora">
-                    <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+                    <div class="current" [ngStyle]="getOverlayStyle()">{{ notificacao.timeRest.hour }}</div>
 
-                    <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                    <round-progress current="{{notificacao.timeRest.hour}}" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
                         [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
                         [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
                     </round-progress>
@@ -47,9 +52,9 @@
             </ion-col>
             <ion-col col-2>
                 <div class="progress-wrapper" id="minuto">
-                    <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+                    <div class="current" [ngStyle]="getOverlayStyle()">{{ notificacao.timeRest.minutes }}</div>
 
-                    <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                    <round-progress current="{{notificacao.timeRest.minutes}}" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
                         [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
                         [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
                     </round-progress>
@@ -58,9 +63,9 @@
             </ion-col>
             <ion-col col-2>
                 <div class="progress-wrapper" id="segundo">
-                    <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}</div>
+                    <div class="current" [ngStyle]="getOverlayStyle()">{{ notificacao.timeRest.seconds }}</div>
 
-                    <round-progress [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+                    <round-progress current="{{notificacao.timeRest.seconds}}" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
                         [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
                         [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
                     </round-progress>

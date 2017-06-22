@@ -22,10 +22,18 @@ export class TimeUtils{
 
     countDown(){
 
-        var x = setInterval(() => {
+        let x = setInterval(() => {
             let dateNow = new Date();
 
             this._timeRest = Math.trunc(this._timeToEnd - dateNow.getTime()) / 1000;
+
+            if(this._timeRest <= 1){
+                this.day = 0;
+                this.minutes=0;
+                this.hour=0;
+                this.seconds=0;
+                return;
+            }
 
             this.day     = this.calculateTime(this._timeRest, this._CONST_DAY);
 
@@ -43,8 +51,7 @@ export class TimeUtils{
 
    //         console.log("Segundos: " + this.seconds);
 
-            if(this.seconds <= 1){
-                console.log(this.seconds)
+            if(this._timeRest <= 1){
                 clearInterval(x);
             }
 

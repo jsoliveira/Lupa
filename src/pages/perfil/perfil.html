@@ -112,20 +112,20 @@
 
         <div class="informacao-layout">
           <ion-label class="cabecalho-informacao"> Contatos </ion-label>
-          <ion-row class="contatos-item">
-            <p> Telefone: (44) 3525-6100 </p>
+          <ion-row class="contatos-item" *ngFor="let telephone of telephones">
+            <p> Telefone: {{ telephone.formattedNumber }} </p>
           </ion-row>
 
           <ion-label class="cabecalho-informacao"> Localização </ion-label>
           <div class="localizacao-item">
             <ion-row>
-              <p> Rua São Paulo 1777 , Centro </p>
+              <p> {{ favorito.street }}, {{ favorito.addressNumber}}, {{ favorito.neighborhood }} </p>
             </ion-row>
             <ion-row>
-              <p> Em frente a Fiat Via Verdi </p>
+              <p> {{ favorito.complement }}</p>
             </ion-row>
             <ion-row>
-              <p> 87303-140 Campo Mourão Paraná </p>
+              <p> Cep:{{ favorito.zipCode }} - {{ favorito.city.name }} - {{ favorito.state.initials }}  </p>
             </ion-row>
           </div>
         </div>
