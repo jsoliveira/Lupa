@@ -21,6 +21,7 @@ import { RoundProgressModule } from 'angular-svg-round-progressbar';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import { HttpModule } from '@angular/http';
+//import * as JWT from 'jsonwebtoken';
 
  
 @NgModule({
@@ -36,12 +37,15 @@ import { HttpModule } from '@angular/http';
     ConversasPage,
     LupaPage,
     PerfilPage
+//    JWT
+
     
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RoundProgressModule,
+//    JWT,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -57,6 +61,7 @@ import { HttpModule } from '@angular/http';
     ConversasPage,
     LupaPage,
     PerfilPage
+//    JWT
     
   ],
   providers: [

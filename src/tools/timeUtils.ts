@@ -14,18 +14,24 @@ export class TimeUtils{
     public minutes: number;
     public seconds: number;
 
+    public iniciarContador;
 
-    constructor(private _timeToEnd){
+
+    constructor(){
 
 
     }
 
-    countDown(){
+    countDownStop(){
+        clearInterval(this.iniciarContador);
+    }
 
-        let x = setInterval(() => {
+    countDown(TempoFinal){
+
+        this.iniciarContador  = setInterval(() => {
             let dateNow = new Date();
 
-            this._timeRest = Math.trunc(this._timeToEnd - dateNow.getTime()) / 1000;
+            this._timeRest = Math.trunc(TempoFinal - dateNow.getTime()) / 1000;
 
             if(this._timeRest <= 1){
                 this.day = 0;
@@ -51,9 +57,9 @@ export class TimeUtils{
 
    //         console.log("Segundos: " + this.seconds);
 
-            if(this._timeRest <= 1){
-                clearInterval(x);
-            }
+            // if(this._timeRest <= 1){
+            //     clearInterval(this.iniciarContador);
+            // }
 
 
         }, 1000);

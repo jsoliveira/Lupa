@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PerfilPage } from '../perfil/perfil';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { LupaService } from "../../providers/lupa-service";
+import { Login } from "../login/login";
 
 /**
  * Generated class for the Favoritos page.
@@ -20,7 +21,7 @@ export class FavoritosPage {
   public slides: Slides;
 
   //PROVIDER
-  private urlFavorito: string = "contact?s=Erva";
+  private urlFavorito = `account/${Login.usuarioLogado.id}/follow`;
 
   //Modelo
   public favoritos;
@@ -50,6 +51,8 @@ export class FavoritosPage {
     let url = LupaService.host + this.urlFavorito;
 
     let favResponse = this.lpService.getWebService(url).then((dado) => {
+      console.log(dado);
+
       return dado['data'].result;
 
     }).catch(error => {

@@ -28,6 +28,8 @@ export class LupaService {
   getWebService(url: string) {
     this.montaHeader();
 
+    console.log('url', url);
+
     return new Promise((resolve, reject) => {
 
       this.http.get(url,{ headers: LupaService.headers })

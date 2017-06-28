@@ -53,11 +53,11 @@ export class PerfilPage {
 
       this.offerArray = Object.keys(offerObject)
       .map(function (key) {
-        var dt = new Date(offerObject[key].endDate.date);
+//        var dt = new Date(offerObject[key].endDate.date);
         
-        let timeUtil = new TimeUtils(dt);
+//        let timeUtil = new TimeUtils(dt);
 
-        offerObject[key].timeRest = timeUtil;
+        offerObject[key].timeRest = new TimeUtils();
 
         return offerObject[key]; 
       });
