@@ -21,8 +21,8 @@ export class FavoritosPage {
   public slides: Slides;
 
   //PROVIDER
-  private urlFavorito = `account/${Login.usuarioLogado.id}/follow`;
-
+  private urlFavoritos = `account/${Login.usuarioLogado.id}/follow`;
+  private urlFavorito  = 'contact/';
   //Modelo
   public favoritos;
 
@@ -46,12 +46,12 @@ export class FavoritosPage {
 
   }
 
-
   getFavoritos(){
-    let url = LupaService.host + this.urlFavorito;
+    let url = LupaService.host + this.urlFavoritos;
 
     let favResponse = this.lpService.getWebService(url).then((dado) => {
       console.log(dado);
+
 
       return dado['data'].result;
 
@@ -61,6 +61,7 @@ export class FavoritosPage {
 
 
     return favResponse;
+
 
   }
 
@@ -76,11 +77,32 @@ export class FavoritosPage {
 
   }
 
-  goPerfil(favorito){
+  getFavorito(favorito){
+    let url = LupaService.host + this.urlFavorito + favorito.contact.id;
+    let fav = this.lpService.getWebService(url)
+      .then((dado) => {
+        console.log('dado', dado['data']);
 
-    this.navCtrl.push(PerfilPage, {
-      favorito: favorito
-    });
+
+        return dado['data'];
+
+      }).catch(error => {
+        console.log('Deu Alex', error);
+      });
+
+      return fav;    
+  }
+
+  goPerfil(favorito){
+    console.log(favorito);
+
+
+    this.getFavorito(favorito).then((fav) => {
+        this.navCtrl.push(PerfilPage, {
+          favorito: fav
+        });
+      });
+
 
   }
 

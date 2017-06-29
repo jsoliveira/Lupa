@@ -134,7 +134,7 @@ export class NotificacoesPage {
         //Finaliza o contado anterior
         array[index + 1].timeRest.countDownStop();
         //inicia o contador da pagina ativa
-        array[index].timeRest.countDown();
+        array[index].timeRest.countDown(new Date(array[index].endDate.date));
         return;
       }
       //SLIDE NORMAL PARA A DIREITA

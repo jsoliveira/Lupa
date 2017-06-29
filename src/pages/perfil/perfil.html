@@ -22,29 +22,31 @@
 
 <ion-content padding class="body">
 
-  <ion-card class="cabecalho-perfil">
+  <ion-slides class="capa-perfil">
 
-    <img src="./assets/img/bomDiaLogo.png" class="banner-perfil" />
-
-  </ion-card>
-
-  <ion-slides *ngFor="let offer of offerArray  " class="perfil-promocao">
-    {{offer.timeRest.countDown()}}
     <ion-slide>
-      <ion-card class="layout-card">
+
+      <!--<img src="./assets/img/bomDiaLogo.png" class="banner-perfil" />-->
+      <img src="{{favorito.urlCapa}}" class="banner-perfil" />
+
+    
+    </ion-slide>
+
+  </ion-slides>
+
+
+  <ion-slides class="perfil-promocao" (ionSlideDidChange)="slideChanged()" >
+    <ion-slide *ngFor="let offer of offerArray">
+
+        <img src="{{offer.urlImagem}}" class="oferta-img"/>
+
 
         <ion-card-header class="card-header">
           {{offer.name}}
         </ion-card-header>
 
         <ion-row>
-
-          <ion-col col-3 col-tsm-3>
-            <ion-label class="title-oferta"> R${{offer.price}}</ion-label>
-            <img src="./assets/img/bomDiaLogo.png" class="banner-card" />
-          </ion-col>
-
-          <ion-col col-2>
+          <ion-col col-3>
             <ion-label class="label-duraracao"> Termina em:</ion-label>
             <div class="progress-wrapper" id="dia">
               <div class="current" [ngStyle]="getOverlayStyle()">{{ offer.timeRest.day }}</div>
@@ -58,36 +60,36 @@
 
           </ion-col>
 
-          <ion-col col-2>
+          <ion-col col-3>
             <div class="progress-wrapper" id="hora">
               <div class="current" [ngStyle]="getOverlayStyle()">{{ offer.timeRest.hour }}</div>
 
-              <round-progress current={{offer.timeRest.hour}} [max]="23" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
-                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
-                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              <round-progress current={{offer.timeRest.hour}} [max]="23" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle"
+                [rounded]="rounded" [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color"
+                [background]="background" [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
               </round-progress>
             </div>
             <ion-label class="rodape-duracao"> Horas </ion-label>
 
           </ion-col>
-          <ion-col col-2>
+          <ion-col col-3>
             <div class="progress-wrapper" id="minuto">
               <div class="current" [ngStyle]="getOverlayStyle()">{{ offer.timeRest.minutes }}</div>
 
-              <round-progress current={{offer.timeRest.minutes}} [max]="59" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
-                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
-                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              <round-progress current={{offer.timeRest.minutes}} [max]="59" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle"
+                [rounded]="rounded" [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color"
+                [background]="background" [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
               </round-progress>
             </div>
             <ion-label class="rodape-duracao"> Minutos </ion-label>
           </ion-col>
-          <ion-col col-2>
+          <ion-col col-3>
             <div class="progress-wrapper" id="segundo">
               <div class="current" [ngStyle]="getOverlayStyle()">{{ offer.timeRest.seconds }}</div>
 
-              <round-progress current={{offer.timeRest.seconds}} [max]="59" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
-                [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
-                [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
+              <round-progress current={{offer.timeRest.seconds}} [max]="59" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle"
+                [rounded]="rounded" [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color"
+                [background]="background" [duration]="duration" [animation]="animation" [animationDelay]="animationDelay">
               </round-progress>
             </div>
             <ion-label class="rodape-duracao"> Segundos </ion-label>
@@ -95,28 +97,29 @@
           </ion-col>
         </ion-row>
 
-        <ion-row class="footer">
+        <ion-row padding>
+            <ion-label class="title-oferta"> R${{offer.price}}</ion-label>
+        </ion-row>
+
+        <ion-row class="footer" padding>
           <button ion-button full color="danger" clear small> Ver detalhes</button>
         </ion-row>
 
-      </ion-card>
-
-
     </ion-slide>
 
-    <ion-slide>
-      <ion-card class="layout-card">
-        <ion-card-header class="card-header">
-          <ion-title> Informações </ion-title>
-        </ion-card-header>
+  </ion-slides>
 
+  <!--<ion-slides class="localizacao-perfil">
+      <ion-slide>
         <div class="informacao-layout">
           <ion-label class="cabecalho-informacao"> Contatos </ion-label>
           <ion-row class="contatos-item" *ngFor="let telephone of telephones">
             <p> Telefone: {{ telephone.formattedNumber }} </p>
           </ion-row>
+        </div>
 
-          <ion-label class="cabecalho-informacao"> Localização </ion-label>
+        <div class="informacao-layout">
+          <ion-label class="cabecalho-localizacao"> Localização </ion-label>
           <div class="localizacao-item">
             <ion-row>
               <p> {{ favorito.street }}, {{ favorito.addressNumber}}, {{ favorito.neighborhood }} </p>
@@ -125,15 +128,20 @@
               <p> {{ favorito.complement }}</p>
             </ion-row>
             <ion-row>
-              <p> Cep:{{ favorito.zipCode }} - {{ favorito.city.name }} - {{ favorito.state.initials }}  </p>
+              <p> Cep:{{ favorito.zipCode }} - {{ favorito.city.name }} - {{ favorito.state.initials }} </p>
             </ion-row>
           </div>
+
         </div>
+      </ion-slide>
+  </ion-slides>-->
 
-      </ion-card>
 
-    </ion-slide>
 
-  </ion-slides>
+  <!--<ion-card class="layout-card">
+
+  </ion-card>-->
+
+
 
 </ion-content>
