@@ -9,6 +9,38 @@
     }
 
     page-perfil {
+
+        .capa-perfil{
+            height: 200px;
+            width: 100%;
+
+            margin-bottom: 10px;
+        }
+
+        .localizacao-perfil{
+            height: 150%;
+            width: 100%;
+
+            padding-top: 30px;
+
+            margin-top: 10px;
+
+            background-color: #FFF;
+
+        }
+
+
+        .contato-perfil{
+            height: 50%;
+            width: 100%;
+
+            padding-top: 30px;
+
+            margin-top: 10px;
+
+            background-color: #FFF;
+
+        }
         
         .header-title{
             color: #FFF;
@@ -77,14 +109,10 @@
         }
 
         .title-oferta{
-            position: absolute;
-            z-index: 1;
             font-size: 1em;
-            margin-top: -10px;
-            transform: translateX(350%);
             color:red;
 
-
+            text-align: center;
         }
 
         .rodape-duracao{
@@ -94,16 +122,21 @@
         }
 
         .layout-card{
-            height: 200px;
+            height: 100%;
         }
 
         .perfil-promocao{
-            height: 200px;
-            margin-bottom: 10px;
+            height: 100%;
+            width: 100%;
+            background-color: #FFF;
         }
 
         .informacao-layout{
             padding-left: 10px;
+            padding-bottom: 10px;
+
+            margin-bottom: 30px;
+
         }
 
         .cabecalho-informacao{
@@ -111,7 +144,16 @@
 
             font-weight: bold;
 
-            margin-top: -10px;
+//            margin-top: -70px;
+
+        }
+
+        .cabecalho-localizacao{
+            text-align: left;
+
+            font-weight: bold;
+
+            margin-top: -50px;
         }
 
         .contatos-item{
@@ -120,9 +162,13 @@
 
         .localizacao-item{
             text-align: left;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
+        .oferta-img{
+            height: 100px;
+            width : 80%;
+        }
 
     }
 }

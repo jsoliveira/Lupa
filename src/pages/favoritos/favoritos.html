@@ -10,7 +10,7 @@
     <ion-card *ngFor="let favorito of favoritos | async">
 
         <ion-card-header class="card-header">
-            {{ favorito.name }}
+            {{ favorito.contact.name }}
         </ion-card-header>
 
 
@@ -32,7 +32,7 @@
                 </ion-label>
             </ion-col>
             <ion-col col-3 col-tsm-3 class="toggle-card">
-                <ion-toggle color="padrao" item-right> </ion-toggle>
+                <ion-toggle color="padrao" item-right checked="{{favorito.contact.notification}}"> </ion-toggle>
             </ion-col>
         </ion-row>
 

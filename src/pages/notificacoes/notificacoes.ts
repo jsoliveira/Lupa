@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { RoundProgressConfig } from 'angular-svg-round-progressbar';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { LupaService } from "../../providers/lupa-service";
 import { TimeUtils } from "../../tools/timeUtils";
 
@@ -15,8 +15,9 @@ import { TimeUtils } from "../../tools/timeUtils";
   selector: 'page-notificacoes',
   templateUrl: 'notificacoes.html',
   providers: [LupaService]
-  
+
 })
+
 export class NotificacoesPage {
   //parametros da RoundedProgress
   current: number = 5;
@@ -37,11 +38,16 @@ export class NotificacoesPage {
   gradient: boolean = false;
   realCurrent: number = 0;
 
-  //PROVIDERS
-  private urlNotificacao = "offer";
-
   //MODELS
   public notificacoes;
+
+  public nomeDaImagem: string = "";
+
+  //PROVIDERS
+  private urlNotificacao = `offer`;
+
+
+  @ViewChild(Slides) slides: Slides;
 
   constructor(
     public navCtrl: NavController,
@@ -64,12 +70,10 @@ export class NotificacoesPage {
 
   }
 
-  getNotificacoes(){
+  getNotificacoes() {
     let url = LupaService.host + this.urlNotificacao;
 
     let notificacoes = this._lpService.getWebService(url).then((dado) => {
-
-//      let notResponse = dado['data'].result;
 
       let notResponse = dado['data'].result;
 
@@ -77,38 +81,74 @@ export class NotificacoesPage {
 
         .map(function (key) {
 
-          var dt;
+          notResponse[key].timeRest = new TimeUtils();
 
-          try {
-            dt = new Date(notResponse[key].endDate.date);
-            
-            
-          } catch (error) {
-
-            dt = new Date();
+          if(notResponse[key].image){
+            notResponse[key].urlImagem = 'https://lupa.ninja/data/contact/offer/' + notResponse[key].image[0].filename;
 
           }
 
-          let timeUtil = new TimeUtils(dt);
 
-          notResponse[key].timeRest = timeUtil;
-
-          return notResponse[key]; 
-            
+          return notResponse[key];
 
         });
-      
 
-      return notArray;
+
+      let novoArray = [];
+      let dataAtual = new Date();
+      notArray.forEach(function (item) {
+
+        if (item.endDate) {
+          if (new Date(item.endDate.date).getTime() > dataAtual.getTime()) {
+            novoArray.push(item);
+          }
+
+        }
+
+      });
+
+      novoArray[0].timeRest = new TimeUtils();
+
+      novoArray[0].timeRest.countDown(new Date(novoArray[0].endDate.date));
+
+      notArray = [];
+
+      return novoArray;
 
     }).catch(error => {
       console.log("Deu Alex", error);
     });
 
     return notificacoes;
+    
 
   }
 
+  slideChanged() {
+    try {
+      let array = this.notificacoes.__zone_symbol__value;
+      let index = this.slides.getActiveIndex();
+
+      //ALGORITMO QUANDO FAZER SLIDE PARA A ESQUERDA
+      if (this.slides.getActiveIndex() == 0) {
+        //Finaliza o contado anterior
+        array[index + 1].timeRest.countDownStop();
+        //inicia o contador da pagina ativa
+        array[index].timeRest.countDown(new Date(array[index].endDate.date));
+        return;
+      }
+      //SLIDE NORMAL PARA A DIREITA
+      //finaliza o caontado anterior
+      array[(index - 1)].timeRest.countDownStop();
+      //inicia o contador ativo
+      array[index].timeRest.countDown(new Date(array[index].endDate.date));
+
+//      console.log('trocou de slide: ', array[index]);
+      
+    } catch (error) {
+      
+    }
+  }
 
 
   getOverlayStyle() {

@@ -6,6 +6,7 @@ import firebase from 'firebase';
 import { TesteFacebook } from "../teste-facebook/teste-facebook";
 import { AbasPage } from "../abas/abas";
 import { LupaService } from "../../providers/lupa-service";
+import { JwtHelper } from 'angular2-jwt';
 
 @IonicPage()
 @Component({
@@ -19,14 +20,16 @@ export class Login {
   public username:string = "";
   public password:string = "";
   //URL PROVIDER
+  public jwt:JwtHelper;
   private urlLogin:string = "auth/credentials";
   //MODELOS
   public static userProfile: any = null;
-  public static usuarioLogado: { username: string, password: string, keepConnection: boolean, token: string };
+  public static usuarioLogado: { id:number, username: string, password: string, keepConnection: boolean, token: string };
 
   constructor(public navCtrl: NavController, public fb: Facebook, private lpService: LupaService) {
     Login.usuarioLogado =
       {
+        id: 0,
         username: "",
         password: "",
         token: "",
@@ -47,9 +50,10 @@ export class Login {
 
     this.lpService.postWebService(url, data).then((token: any) => {
       //retirar [' e '] do token recebido no body
+      this.jwt = new JwtHelper();
       let tokenTrim = token._body.substring(2, token._body.length - 2);
 
-
+      Login.usuarioLogado.id       = this.jwt.decodeToken(tokenTrim).data.id;
       Login.usuarioLogado.token    = tokenTrim;
       Login.usuarioLogado.username = this.username;
       Login.usuarioLogado.password = this.password;

@@ -9,6 +9,14 @@
     }
 
     page-notificacoes {
+      .notificacao-layout{
+        background-color: #FFF;
+      }
+
+      ion-slide{
+        height: 100%;
+      }
+
       .header-title{
           color: #FFF;
 
@@ -41,7 +49,7 @@
 
       //RESTO
       .card-header{
-          text-align: left;
+          text-align: center;
           font-size: 0.8em;
       }
       .banner-card{
@@ -67,6 +75,11 @@
         font-size: 0.5em;
         text-align: center;
         z-index: 1;
+      }
+
+      .oferta-img{
+        height: 100px;
+        width : 80%;
       }
 
     }
